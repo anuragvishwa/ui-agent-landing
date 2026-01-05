@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Search,
@@ -670,6 +670,7 @@ export function InteractiveHeroMockup() {
   const [visibleSteps, setVisibleSteps] = useState(0);
   const [currentScreen, setCurrentScreen] = useState<ScreenType>("dashboard");
   const [activeStepIndex, setActiveStepIndex] = useState(0);
+  const hasStartedRef = useRef(false);
 
   const currentQuestion = questions[questionIndex];
   const currentStep = currentQuestion.steps[activeStepIndex];
@@ -775,9 +776,9 @@ export function InteractiveHeroMockup() {
     typeCharacter(1);
   }, [questionIndex]);
 
-  // Start demo loop
+  // Start demo loop (after first cycle completes)
   useEffect(() => {
-    if (phase === "idle") {
+    if (phase === "idle" && hasStartedRef.current) {
       const startDelay = setTimeout(() => {
         runDemoLoop();
       }, 800);
@@ -785,8 +786,11 @@ export function InteractiveHeroMockup() {
     }
   }, [phase, runDemoLoop]);
 
-  // Initial start
+  // Initial start (only once on mount)
   useEffect(() => {
+    if (hasStartedRef.current) return;
+    hasStartedRef.current = true;
+
     const initialDelay = setTimeout(() => {
       runDemoLoop();
     }, 1000);
