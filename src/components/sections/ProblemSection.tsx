@@ -2,16 +2,6 @@
 
 import { motion } from "framer-motion";
 import {
-  Search,
-  Settings,
-  Ban,
-  Lock,
-  FormInput,
-  HelpCircle,
-  FileX,
-  Monitor,
-  Unplug,
-  AlertTriangle,
   Headphones,
   UserX,
   DoorOpen,
@@ -19,46 +9,8 @@ import {
 } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { fadeInUp, staggerContainer } from "@/lib/animations";
+import { fadeInUp } from "@/lib/animations";
 import { InboxSupportMockup } from "@/components/mockups";
-
-const painPoints = [
-  {
-    icon: Search,
-    secondaryIcon: Settings,
-    quote: "Where is this setting?",
-    color: "from-blue-500 to-blue-600",
-    solution: "Flexdash shows the exact location with a spotlight",
-  },
-  {
-    icon: Ban,
-    secondaryIcon: Lock,
-    quote: "Why is this disabled?",
-    color: "from-purple-500 to-violet-600",
-    solution: "Flexdash explains the reason and guides to fix it",
-  },
-  {
-    icon: FormInput,
-    secondaryIcon: HelpCircle,
-    quote: "What should I fill here?",
-    color: "from-green-500 to-emerald-600",
-    solution: "Flexdash provides inline field guidance",
-  },
-  {
-    icon: FileX,
-    secondaryIcon: Monitor,
-    quote: "Doc doesn't match screen",
-    color: "from-orange-500 to-amber-600",
-    solution: "Flexdash guides based on actual UI, not docs",
-  },
-  {
-    icon: Unplug,
-    secondaryIcon: AlertTriangle,
-    quote: "Integration not working",
-    color: "from-red-500 to-rose-600",
-    solution: "Flexdash runs preflight checks to find issues",
-  },
-];
 
 const costImpacts = [
   {
@@ -126,76 +78,16 @@ export function ProblemSection() {
           description="These aren't product bugs — they're context gaps that cost you time, money, and growth."
         />
 
-        {/* Two-column layout: Mockup + Pain Points */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
-          {/* Left: Inbox mockup */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="hidden lg:block"
-          >
-            <InboxSupportMockup />
-          </motion.div>
-
-          {/* Right: Pain point cards - static, non-clickable */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="space-y-4"
-          >
-            {/* Pain point cards in a clean stack */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {painPoints.map((point, index) => (
-                <motion.div
-                  key={index}
-                  variants={fadeInUp}
-                >
-                  <div className="bg-white border border-secondary-200 rounded-2xl p-5 h-full hover:shadow-lg hover:border-primary-500/50 transition-all duration-300 hover:-translate-y-1">
-                    {/* Large icon box */}
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${point.color} flex items-center justify-center mb-4 shadow-lg`}>
-                      <point.icon className="w-6 h-6 text-white" />
-                    </div>
-
-                    {/* Quote */}
-                    <p className="text-secondary-900 text-sm font-medium mb-2">
-                      &ldquo;{point.quote}&rdquo;
-                    </p>
-
-                    {/* Solution - always visible */}
-                    <p className="text-xs text-secondary-500">
-                      {point.solution}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Stat callout */}
-            <motion.div
-              variants={fadeInUp}
-            >
-              <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200/50 rounded-2xl p-5 flex items-center justify-between">
-                <div>
-                  <p className="text-2xl font-bold text-red-600">
-                    +340%
-                  </p>
-                  <p className="text-sm text-secondary-600">increase in UI confusion tickets</p>
-                </div>
-                <motion.div
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="w-14 h-14 rounded-full bg-red-100 border border-red-200 flex items-center justify-center"
-                >
-                  <AlertTriangle className="w-7 h-7 text-red-500" />
-                </motion.div>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
+        {/* Full-width Inbox mockup */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20"
+        >
+          <InboxSupportMockup />
+        </motion.div>
 
         {/* Cost Impact Cards - Premium Design */}
         <motion.div

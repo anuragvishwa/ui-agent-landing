@@ -967,86 +967,69 @@ export function InteractiveHeroMockup() {
                   </kbd>
                 </div>
 
-                {/* Options UI */}
-                <AnimatePresence>
-                  {phase === "options" && (
+                {/* Options UI - always rendered, opacity controls visibility */}
+                <div
+                  className={`p-2 bg-white/30 space-y-2 transition-opacity duration-200 ${
+                    phase === "options" ? "opacity-100" : "opacity-0 h-0 overflow-hidden"
+                  }`}
+                >
+                  <div
+                    className={`flex items-center gap-3 px-3 py-2.5 bg-primary-50/80 rounded-lg border border-primary-200/50 cursor-pointer hover:bg-primary-100/80 transition-all duration-200 ${
+                      phase === "options" ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                    }`}
+                    style={{ transitionDelay: "100ms" }}
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-md">
+                      <Zap className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-sm font-medium text-secondary-900">Show me how</div>
+                      <div className="text-xs text-secondary-500">Interactive step-by-step guidance</div>
+                    </div>
                     <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="p-2 bg-white/30 space-y-2"
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                      className="text-xs text-primary-600 font-semibold flex items-center gap-1"
                     >
-                      <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="flex items-center gap-3 px-3 py-2.5 bg-primary-50/80 rounded-lg border border-primary-200/50 cursor-pointer hover:bg-primary-100/80 transition-colors"
-                      >
-                        <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-md">
-                          <Zap className="w-4 h-4 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="text-sm font-medium text-secondary-900">Show me how</div>
-                          <div className="text-xs text-secondary-500">Interactive step-by-step guidance</div>
-                        </div>
-                        <motion.div
-                          animate={{ x: [0, 4, 0] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
-                          className="text-xs text-primary-600 font-semibold flex items-center gap-1"
-                        >
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </motion.div>
-                      </motion.div>
-
-                      <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="flex items-center gap-3 px-3 py-2.5 bg-secondary-50/50 rounded-lg border border-secondary-200/30"
-                      >
-                        <div className="w-9 h-9 rounded-lg bg-secondary-200 flex items-center justify-center">
-                          <MessageSquare className="w-4 h-4 text-secondary-600" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="text-sm font-medium text-secondary-700">Just tell me</div>
-                          <div className="text-xs text-secondary-500">Text answer only</div>
-                        </div>
-                      </motion.div>
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
                     </motion.div>
-                  )}
-                </AnimatePresence>
+                  </div>
 
-                {/* Selecting animation */}
-                <AnimatePresence>
-                  {phase === "selecting" && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="p-2 bg-white/30"
-                    >
-                      <motion.div
-                        animate={{
-                          scale: [1, 0.98, 1],
-                          backgroundColor: ["rgb(240 253 250)", "rgb(204 251 241)", "rgb(240 253 250)"],
-                        }}
-                        transition={{ duration: 0.4 }}
-                        className="flex items-center gap-3 px-3 py-2.5 rounded-lg border-2 border-primary-500 bg-primary-50"
-                      >
-                        <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-md">
-                          <Zap className="w-4 h-4 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="text-sm font-medium text-primary-700">Show me how</div>
-                          <div className="text-xs text-primary-500">Starting interactive guidance...</div>
-                        </div>
-                        <Loader2 className="w-4 h-4 animate-spin text-primary-500" />
-                      </motion.div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                  <div
+                    className={`flex items-center gap-3 px-3 py-2.5 bg-secondary-50/50 rounded-lg border border-secondary-200/30 transition-all duration-200 ${
+                      phase === "options" ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                    }`}
+                    style={{ transitionDelay: "200ms" }}
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-secondary-200 flex items-center justify-center">
+                      <MessageSquare className="w-4 h-4 text-secondary-600" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-sm font-medium text-secondary-700">Just tell me</div>
+                      <div className="text-xs text-secondary-500">Text answer only</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Selecting animation - always rendered, opacity controls visibility */}
+                <div
+                  className={`p-2 bg-white/30 transition-opacity duration-200 ${
+                    phase === "selecting" ? "opacity-100" : "opacity-0 h-0 overflow-hidden"
+                  }`}
+                >
+                  <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg border-2 border-primary-500 bg-primary-50">
+                    <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-md">
+                      <Zap className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-sm font-medium text-primary-700">Show me how</div>
+                      <div className="text-xs text-primary-500">Starting interactive guidance...</div>
+                    </div>
+                    <Loader2 className="w-4 h-4 animate-spin text-primary-500" />
+                  </div>
+                </div>
 
                 {/* AI action hint during typing */}
                 {phase === "typing" && displayText.length > 5 && (
@@ -1068,86 +1051,82 @@ export function InteractiveHeroMockup() {
         </AnimatePresence>
       </motion.div>
 
-      {/* Floating steps bubble - positioned BELOW the mockup */}
-      <AnimatePresence>
-        {["showing-steps", "executing", "success"].includes(phase) && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="mt-4"
-          >
-            <div className="glass-card-strong rounded-xl p-4 shadow-lg border border-white/50">
-              <div className="flex items-center gap-2 mb-3 text-xs text-secondary-500">
-                <Sparkles className="w-3 h-3 text-primary-500" />
-                <span>Generated {currentQuestion.steps.length}-step guidance</span>
-              </div>
-              <div className="space-y-2">
-                {currentQuestion.steps.map((step, i) => {
-                  const StepIcon = step.icon;
-                  const isVisible = i < visibleSteps || phase === "executing" || phase === "success";
-                  const isCompleted = phase === "success" || (phase === "executing" && i < currentQuestion.steps.length - 1);
-                  const isActive = phase === "executing" && i === currentQuestion.steps.length - 1;
+      {/* Floating steps bubble - fixed height container to prevent layout shift */}
+      <div className="mt-4 min-h-[180px]">
+        <div
+          className={`transition-all duration-300 ${
+            ["showing-steps", "executing", "success"].includes(phase)
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-4 pointer-events-none"
+          }`}
+        >
+          <div className="glass-card-strong rounded-xl p-4 shadow-lg border border-white/50">
+            <div className="flex items-center gap-2 mb-3 text-xs text-secondary-500">
+              <Sparkles className="w-3 h-3 text-primary-500" />
+              <span>Generated {currentQuestion.steps.length}-step guidance</span>
+            </div>
+            <div className="space-y-2">
+              {currentQuestion.steps.map((step, i) => {
+                const StepIcon = step.icon;
+                const isVisible = i < visibleSteps || phase === "executing" || phase === "success";
+                const isCompleted = phase === "success" || (phase === "executing" && i < currentQuestion.steps.length - 1);
+                const isActive = phase === "executing" && i === currentQuestion.steps.length - 1;
 
-                  return (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, x: -20, scale: 0.9 }}
-                      animate={isVisible ? { opacity: 1, x: 0, scale: 1 } : {}}
-                      transition={{ delay: i * 0.15, type: "spring", stiffness: 300 }}
-                      className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
-                        isActive
-                          ? "bg-primary-50/80 border border-primary-200"
-                          : isCompleted
-                          ? "bg-green-50/50"
-                          : "bg-secondary-50/50"
+                return (
+                  <div
+                    key={i}
+                    className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 ${
+                      isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                    } ${
+                      isActive
+                        ? "bg-primary-50/80 border border-primary-200"
+                        : isCompleted
+                        ? "bg-green-50/50"
+                        : "bg-secondary-50/50"
+                    }`}
+                    style={{ transitionDelay: `${i * 100}ms` }}
+                  >
+                    <div
+                      className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
+                        isCompleted
+                          ? "bg-green-500 text-white"
+                          : isActive
+                          ? "bg-primary-500 text-white"
+                          : "bg-secondary-200 text-secondary-600"
                       }`}
                     >
-                      <div
-                        className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
-                          isCompleted
-                            ? "bg-green-500 text-white"
-                            : isActive
-                            ? "bg-primary-500 text-white"
-                            : "bg-secondary-200 text-secondary-600"
-                        }`}
-                      >
-                        {isCompleted ? <CheckCircle2 className="w-3.5 h-3.5" /> : i + 1}
-                      </div>
-                      <StepIcon
-                        className={`w-4 h-4 ${
-                          isCompleted ? "text-green-500" : isActive ? "text-primary-500" : "text-secondary-400"
-                        }`}
-                      />
-                      <span
-                        className={`text-sm ${
-                          isCompleted
-                            ? "text-green-700 line-through"
-                            : isActive
-                            ? "text-primary-700 font-medium"
-                            : "text-secondary-600"
-                        }`}
-                      >
-                        {step.label}
-                      </span>
-                      {isActive && (
-                        <motion.div
-                          animate={{ scale: [1, 1.2, 1] }}
-                          transition={{ duration: 1, repeat: Infinity }}
-                          className="ml-auto"
-                        >
-                          <div className="w-2 h-2 rounded-full bg-primary-500" />
-                        </motion.div>
-                      )}
-                    </motion.div>
-                  );
-                })}
-              </div>
+                      {isCompleted ? <CheckCircle2 className="w-3.5 h-3.5" /> : i + 1}
+                    </div>
+                    <StepIcon
+                      className={`w-4 h-4 ${
+                        isCompleted ? "text-green-500" : isActive ? "text-primary-500" : "text-secondary-400"
+                      }`}
+                    />
+                    <span
+                      className={`text-sm ${
+                        isCompleted
+                          ? "text-green-700 line-through"
+                          : isActive
+                          ? "text-primary-700 font-medium"
+                          : "text-secondary-600"
+                      }`}
+                    >
+                      {step.label}
+                    </span>
+                    <div
+                      className={`ml-auto transition-all duration-300 ${
+                        isActive ? "opacity-100 scale-100" : "opacity-0 scale-75"
+                      }`}
+                    >
+                      <div className="w-2 h-2 rounded-full bg-primary-500 animate-pulse" />
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -3,7 +3,6 @@ import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ProblemSection } from "@/components/sections/ProblemSection";
 import { SolutionSection } from "@/components/sections/SolutionSection";
-import { DifferentiatorsSection } from "@/components/sections/DifferentiatorsSection";
 import { FeaturesSection } from "@/components/sections/FeaturesSection";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { UseCasesSection } from "@/components/sections/UseCasesSection";
@@ -21,7 +20,6 @@ export default function Home() {
         <HeroSection />
         <ProblemSection />
         <SolutionSection />
-        <DifferentiatorsSection />
         <FeaturesSection />
         <StatsSection />
         <UseCasesSection />
