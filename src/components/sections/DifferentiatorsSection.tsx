@@ -152,7 +152,7 @@ function ChatbotSide({
         </div>
 
         {/* Chat content */}
-        <div className="h-[280px] overflow-hidden relative">
+        <div className="h-[200px] sm:h-[240px] md:h-[280px] overflow-hidden relative">
           <motion.div
             animate={isScrolling ? { y: -120 } : { y: 0 }}
             transition={{ duration: 2, ease: "easeInOut" }}
@@ -241,7 +241,7 @@ function ChatbotSide({
       </div>
 
       {/* Confused user indicator - fixed height container to prevent layout shift */}
-      <div className="h-10 mt-3">
+      <div className="h-8 sm:h-10 mt-2 sm:mt-3">
         <AnimatePresence>
           {isConfused && (
             <motion.div
@@ -317,7 +317,7 @@ function FlexdashSide({
         </div>
 
         {/* App content - different screens based on question */}
-        <div className="h-[280px] relative overflow-hidden">
+        <div className="h-[200px] sm:h-[240px] md:h-[280px] relative overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={questionIndex}
@@ -359,7 +359,7 @@ function FlexdashSide({
       </div>
 
       {/* Success indicator - fixed height container to prevent layout shift */}
-      <div className="h-10 mt-3">
+      <div className="h-8 sm:h-10 mt-2 sm:mt-3">
         <AnimatePresence>
           {isSuccess && (
             <motion.div
@@ -847,7 +847,7 @@ export function DifferentiatorsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12"
+          className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto mb-8 md:mb-12"
         >
           {/* Chatbot side */}
           <ChatbotSide chatbotPhase={chatbotPhase} questionIndex={questionIndex} />
@@ -857,7 +857,7 @@ export function DifferentiatorsSection() {
         </motion.div>
 
         {/* Comparison result - fixed height container to prevent layout shift */}
-        <div className="h-16 mb-12 flex items-center justify-center">
+        <div className="h-12 sm:h-16 mb-8 md:mb-12 flex items-center justify-center">
           <AnimatePresence>
             {showComparison && (
               <motion.div
@@ -885,7 +885,7 @@ export function DifferentiatorsSection() {
             hidden: {},
             visible: { transition: { staggerChildren: 0.15 } },
           }}
-          className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+          className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto"
         >
           {differentiators.map((item, index) => (
             <motion.div

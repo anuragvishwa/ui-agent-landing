@@ -63,7 +63,7 @@ export function HeroSection() {
       />
 
       <Container className="relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-12 lg:py-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center py-8 sm:py-12 lg:py-20">
           {/* Left Column - Content */}
           <motion.div
             initial="hidden"
@@ -80,7 +80,7 @@ export function HeroSection() {
 
             <motion.h1
               variants={fadeInUp}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-900 tracking-tight mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-900 tracking-tight mb-6"
             >
               Stop telling users.{" "}
               <span className="text-gradient">Start guiding them.</span>

@@ -82,9 +82,9 @@ export function SolutionSection() {
         />
 
         {/* Two-column layout: Steps + Mockup */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-start mb-8 lg:mb-16">
           {/* Left: Interactive Steps */}
-          <div className="relative min-h-[700px]">
+          <div className="relative lg:min-h-[700px]">
             {/* Progress indicator - centered on icons */}
             <div
               className="absolute left-[39px] top-[44px] w-0.5 bg-secondary-200 hidden md:block"
@@ -176,7 +176,7 @@ export function SolutionSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="hidden lg:block sticky top-8"
+            className="mt-8 lg:mt-0 lg:sticky lg:top-8 scale-90 origin-top sm:scale-100"
           >
             <div className="relative">
               {/* Glow effect behind mockup */}

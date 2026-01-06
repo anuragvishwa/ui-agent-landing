@@ -799,7 +799,7 @@ export function InteractiveHeroMockup() {
   }, []);
 
   return (
-    <div className="relative w-full max-w-lg mx-auto">
+    <div className="relative w-full max-w-lg mx-auto px-2 sm:px-0">
       {/* Main mockup container */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -831,7 +831,7 @@ export function InteractiveHeroMockup() {
           </div>
 
           {/* App content */}
-          <div className="p-6 bg-gradient-to-b from-white/50 to-secondary-50/30 min-h-[320px]">
+          <div className="p-4 sm:p-6 bg-gradient-to-b from-white/50 to-secondary-50/30 min-h-[280px] sm:min-h-[320px]">
             {/* Dynamic screen content based on current screen state */}
             <AnimatePresence mode="wait">
               <motion.div
@@ -995,7 +995,7 @@ export function InteractiveHeroMockup() {
                 damping: 25,
                 mass: 0.5
               }}
-              className="absolute top-14 left-4 right-4 z-10"
+              className="absolute top-12 sm:top-14 left-2 right-2 sm:left-4 sm:right-4 z-10"
             >
               <div className="glass-card-strong rounded-xl shadow-2xl overflow-hidden">
                 <div className="flex items-center gap-3 px-4 py-3 border-b border-secondary-100/50 bg-white/50">
@@ -1128,7 +1128,7 @@ export function InteractiveHeroMockup() {
       </motion.div>
 
       {/* Floating steps bubble - smooth spring entrance */}
-      <div className="mt-4 min-h-[180px]">
+      <div className="mt-3 sm:mt-4 min-h-[140px] sm:min-h-[180px]">
         <motion.div
           initial={{ opacity: 0, y: 20, scale: 0.97 }}
           animate={{
