@@ -41,7 +41,7 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <section className="section-padding bg-white">
+    <section className="pt-8 pb-20 lg:pb-28 bg-white">
       <Container>
         <SectionHeading
           badge="FAQ"

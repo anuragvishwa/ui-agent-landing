@@ -43,7 +43,7 @@ export function SetupStepsSection() {
           className="text-center mb-16"
         >
           <span className="inline-block px-3 py-1 bg-primary-500/20 text-primary-300 text-sm font-medium rounded-full mb-4">
-            Get Started
+            Quick Setup
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
             Up and running in minutes

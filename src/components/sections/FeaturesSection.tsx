@@ -133,7 +133,7 @@ export function FeaturesSection() {
   const [selectedFeature, setSelectedFeature] = useState<number | null>(null);
 
   return (
-    <section id="features" className="section-padding bg-white">
+    <section id="features" className="pt-8 pb-20 lg:pb-28 bg-white">
       <Container>
         <SectionHeading
           badge="Core Features"

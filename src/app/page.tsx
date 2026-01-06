@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { DifferentiatorsSection } from "@/components/sections/DifferentiatorsSection";
 import { ProblemSection } from "@/components/sections/ProblemSection";
 import { SolutionSection } from "@/components/sections/SolutionSection";
 import { FeaturesSection } from "@/components/sections/FeaturesSection";
@@ -21,6 +22,7 @@ export default function Home() {
         <ProblemSection />
         <SolutionSection />
         <FeaturesSection />
+        <DifferentiatorsSection />
         <StatsSection />
         <UseCasesSection />
         <SecuritySection />

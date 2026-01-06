@@ -65,7 +65,7 @@ export function SolutionSection() {
   }, []);
 
   return (
-    <section id="solution" className="section-padding bg-white relative overflow-hidden">
+    <section id="solution" className="pt-8 pb-20 lg:pb-28 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-pattern opacity-30" />
       <motion.div
@@ -85,8 +85,11 @@ export function SolutionSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
           {/* Left: Interactive Steps */}
           <div className="relative min-h-[700px]">
-            {/* Progress indicator */}
-            <div className="absolute left-7 top-10 bottom-10 w-0.5 bg-secondary-200 hidden md:block">
+            {/* Progress indicator - centered on icons */}
+            <div
+              className="absolute left-[39px] top-[44px] w-0.5 bg-secondary-200 hidden md:block"
+              style={{ height: 'calc(100% - 180px)' }}
+            >
               <motion.div
                 className="absolute top-0 left-0 w-full bg-gradient-to-b from-primary-500 to-primary-400"
                 initial={{ height: "0%" }}
@@ -100,7 +103,7 @@ export function SolutionSection() {
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={staggerContainer}
-              className="space-y-4"
+              className="space-y-2"
             >
               {steps.map((step, index) => (
                 <motion.div
@@ -144,15 +147,11 @@ export function SolutionSection() {
                       {step.description}
                     </p>
 
-                    {/* Detail text - always rendered, opacity controls visibility */}
-                    <div className="mt-2">
-                      <p
-                        className={`text-sm rounded-lg p-3 transition-all duration-200 ${
-                          activeStep === index
-                            ? "text-primary-700 bg-primary-100 opacity-100"
-                            : "text-transparent bg-transparent opacity-0"
-                        }`}
-                      >
+                    {/* Detail text - collapse with max-height to prevent layout shifts */}
+                    <div className={`mt-2 overflow-hidden transition-all duration-300 ease-out ${
+                      activeStep === index ? "max-h-32 opacity-100" : "max-h-0 opacity-0"
+                    }`}>
+                      <p className="text-sm rounded-lg p-3 text-primary-700 bg-primary-100">
                         {step.detail}
                       </p>
                     </div>

@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Play, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/layout/Container";
 import { InteractiveHeroMockup } from "@/components/illustrations/InteractiveHeroMockup";
@@ -96,34 +95,18 @@ export function HeroSection() {
               <span className="font-medium text-secondary-900">right now</span>.
             </motion.p>
 
-            {/* Email capture form */}
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto lg:mx-0 mb-8"
-            >
-              <Input
-                type="email"
-                placeholder="Enter your work email"
-                className="flex-1 h-12 glass-card border-secondary-200/50"
-              />
-              <Button size="lg" className="h-12 btn-glow group">
-                Get Started
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </motion.div>
 
-            {/* Secondary CTA */}
+            {/* CTA */}
             <motion.div
               variants={fadeInUp}
               className="flex flex-col sm:flex-row items-center gap-4 mb-10"
             >
-              <Button variant="outline" size="lg" className="h-11 group glass border-secondary-200/50">
-                <Play className="mr-2 w-4 h-4" />
-                Watch Demo
-              </Button>
-              <span className="text-sm text-secondary-500">
-                No credit card required
-              </span>
+              <a href="https://cal.com/anuragvishwa/ui-15" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="h-12 btn-glow group">
+                  Book a Demo
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
             </motion.div>
 
             {/* Trust indicators with real logos */}

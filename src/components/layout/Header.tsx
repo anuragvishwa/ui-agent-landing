@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 import { Container } from "./Container";
 import { Logo } from "@/components/illustrations/Logo";
 import { cn } from "@/lib/utils";
@@ -57,13 +56,6 @@ export function Header() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Button variant="ghost" size="sm">
-              Log in
-            </Button>
-            <Button size="sm">Get Started</Button>
-          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -97,12 +89,6 @@ export function Header() {
                   {item.name}
                 </Link>
               ))}
-              <div className="flex flex-col gap-2 pt-4 border-t border-secondary-100">
-                <Button variant="ghost" className="justify-start">
-                  Log in
-                </Button>
-                <Button>Get Started</Button>
-              </div>
             </div>
           </motion.div>
         )}

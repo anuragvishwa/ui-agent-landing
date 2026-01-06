@@ -73,24 +73,13 @@ export function CTASection() {
                 transition={{ delay: 0.4 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-4"
               >
-                <Button size="xl" className="group">
-                  Book a Demo
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button variant="outline" size="xl" className="border-white/20 text-white hover:bg-white/10">
-                  Get Started Free
-                </Button>
+                <a href="https://cal.com/anuragvishwa/ui-15" target="_blank" rel="noopener noreferrer">
+                  <Button size="xl" className="group">
+                    Book a Demo
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </a>
               </motion.div>
-
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                className="mt-6 text-sm text-secondary-400"
-              >
-                No credit card required • Free trial available
-              </motion.p>
             </div>
           </div>
         </motion.div>

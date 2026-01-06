@@ -119,9 +119,9 @@ const priorityColors = {
 };
 
 const priorityGradients = {
-  high: "from-red-500 to-red-600",
-  medium: "from-amber-500 to-amber-600",
-  low: "from-secondary-500 to-secondary-600",
+  high: "from-red-400 to-red-500",
+  medium: "from-amber-400 to-amber-500",
+  low: "from-secondary-400 to-secondary-500",
 };
 
 // Detail Panel Component
