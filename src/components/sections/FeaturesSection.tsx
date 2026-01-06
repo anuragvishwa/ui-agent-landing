@@ -217,37 +217,37 @@ export function FeaturesSection() {
                 exit="exit"
                 onClick={(e) => e.stopPropagation()}
                 className={cn(
-                  "bg-white rounded-2xl shadow-2xl overflow-hidden",
-                  features[selectedFeature].hasMockup ? "max-w-5xl w-full" : "max-w-lg w-full"
+                  "bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto",
+                  features[selectedFeature].hasMockup ? "max-w-[95vw] sm:max-w-5xl w-full" : "max-w-[95vw] sm:max-w-lg w-full"
                 )}
               >
                 {/* Header */}
                 <div
                   className={cn(
-                    "p-6 bg-gradient-to-br text-white",
+                    "p-4 sm:p-6 bg-gradient-to-br text-white",
                     features[selectedFeature].color
                   )}
                 >
-                  <div className="flex items-start justify-between">
-                    <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
                         {(() => {
                           const Icon = features[selectedFeature].icon;
-                          return <Icon className="w-7 h-7 text-white" />;
+                          return <Icon className="w-5 h-5 sm:w-7 sm:h-7 text-white" />;
                         })()}
                       </div>
-                      <div>
-                        <h3 className="text-xl font-bold">
+                      <div className="min-w-0">
+                        <h3 className="text-lg sm:text-xl font-bold truncate">
                           {features[selectedFeature].title}
                         </h3>
-                        <p className="text-white/80 text-sm">
+                        <p className="text-white/80 text-xs sm:text-sm">
                           {features[selectedFeature].shortDesc}
                         </p>
                       </div>
                     </div>
                     <button
                       onClick={() => setSelectedFeature(null)}
-                      className="w-8 h-8 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+                      className="w-8 h-8 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors flex-shrink-0"
                     >
                       <X className="w-4 h-4 text-white" />
                     </button>
@@ -256,8 +256,8 @@ export function FeaturesSection() {
 
                 {/* Body */}
                 <div className={cn(
-                  "p-6",
-                  features[selectedFeature].hasMockup && "grid md:grid-cols-2 gap-8"
+                  "p-4 sm:p-6",
+                  features[selectedFeature].hasMockup && "grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
                 )}>
                   {/* Left: Text content */}
                   <div>

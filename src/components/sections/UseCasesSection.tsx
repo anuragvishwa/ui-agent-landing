@@ -598,23 +598,26 @@ export function UseCasesSection() {
           description="Real examples of how Flexdash guides users through common stuck moments."
         />
 
-        {/* Tab buttons */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {useCases.map((useCase) => (
-            <button
-              key={useCase.id}
-              onClick={() => setActiveTab(useCase.id)}
-              className={cn(
-                "flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium transition-all",
-                activeTab === useCase.id
-                  ? "bg-primary-600 text-white shadow-lg shadow-primary-600/25"
-                  : "bg-white text-secondary-600 hover:bg-secondary-100 border border-secondary-200"
-              )}
-            >
-              <useCase.icon className="w-4 h-4" />
-              {useCase.title}
-            </button>
-          ))}
+        {/* Tab buttons - horizontal scroll on mobile */}
+        <div className="flex justify-center mb-12">
+          <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2 px-4 -mx-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:justify-center max-w-full">
+            {useCases.map((useCase) => (
+              <button
+                key={useCase.id}
+                onClick={() => setActiveTab(useCase.id)}
+                className={cn(
+                  "flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap flex-shrink-0",
+                  activeTab === useCase.id
+                    ? "bg-primary-600 text-white shadow-lg shadow-primary-600/25"
+                    : "bg-white text-secondary-600 hover:bg-secondary-100 border border-secondary-200"
+                )}
+              >
+                <useCase.icon className="w-4 h-4" />
+                <span className="hidden sm:inline">{useCase.title}</span>
+                <span className="sm:hidden">{useCase.title.split(' ')[0]}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Tab content */}
@@ -625,7 +628,7 @@ export function UseCasesSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="grid md:grid-cols-2 gap-8 items-start max-w-5xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start max-w-5xl mx-auto px-4 sm:px-0"
           >
             {/* Left - Description & Steps */}
             <div>

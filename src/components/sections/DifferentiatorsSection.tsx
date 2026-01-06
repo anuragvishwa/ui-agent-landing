@@ -817,7 +817,7 @@ export function DifferentiatorsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-md mx-auto mb-8"
+          className="max-w-md mx-auto mb-6 sm:mb-8 px-4 sm:px-0"
         >
           <div className="bg-white rounded-xl border border-secondary-200 shadow-soft p-4">
             <div className="flex items-center gap-3">
@@ -847,7 +847,7 @@ export function DifferentiatorsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto mb-8 md:mb-12"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6 max-w-4xl mx-auto mb-6 md:mb-12 px-4 sm:px-0"
         >
           {/* Chatbot side */}
           <ChatbotSide chatbotPhase={chatbotPhase} questionIndex={questionIndex} />
@@ -857,7 +857,7 @@ export function DifferentiatorsSection() {
         </motion.div>
 
         {/* Comparison result - fixed height container to prevent layout shift */}
-        <div className="h-12 sm:h-16 mb-8 md:mb-12 flex items-center justify-center">
+        <div className="h-auto sm:h-16 mb-6 md:mb-12 flex items-center justify-center px-4 sm:px-0">
           <AnimatePresence>
             {showComparison && (
               <motion.div
@@ -866,10 +866,10 @@ export function DifferentiatorsSection() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 className="text-center"
               >
-                <div className="inline-flex items-center gap-4 px-6 py-3 bg-primary-50 rounded-full border border-primary-200">
-                  <span className="text-secondary-500 line-through">Minutes of reading</span>
-                  <span className="text-secondary-300">vs</span>
-                  <span className="text-primary-700 font-semibold">3 seconds to done</span>
+                <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-4 sm:px-6 py-2 sm:py-3 bg-primary-50 rounded-2xl sm:rounded-full border border-primary-200">
+                  <span className="text-secondary-500 line-through text-sm sm:text-base">Minutes of reading</span>
+                  <span className="hidden sm:inline text-secondary-300">vs</span>
+                  <span className="text-primary-700 font-semibold text-sm sm:text-base">3 seconds to done</span>
                 </div>
               </motion.div>
             )}
@@ -885,7 +885,7 @@ export function DifferentiatorsSection() {
             hidden: {},
             visible: { transition: { staggerChildren: 0.15 } },
           }}
-          className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto px-4 sm:px-0"
         >
           {differentiators.map((item, index) => (
             <motion.div

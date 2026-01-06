@@ -799,7 +799,7 @@ export function InteractiveHeroMockup() {
   }, []);
 
   return (
-    <div className="relative w-full max-w-lg mx-auto px-2 sm:px-0">
+    <div className="relative w-full max-w-lg mx-auto px-0 sm:px-0">
       {/* Main mockup container */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -831,7 +831,7 @@ export function InteractiveHeroMockup() {
           </div>
 
           {/* App content */}
-          <div className="p-4 sm:p-6 bg-gradient-to-b from-white/50 to-secondary-50/30 min-h-[280px] sm:min-h-[320px]">
+          <div className="p-3 sm:p-6 bg-gradient-to-b from-white/50 to-secondary-50/30 min-h-[260px] sm:min-h-[320px]">
             {/* Dynamic screen content based on current screen state */}
             <AnimatePresence mode="wait">
               <motion.div
@@ -995,13 +995,13 @@ export function InteractiveHeroMockup() {
                 damping: 25,
                 mass: 0.5
               }}
-              className="absolute top-12 sm:top-14 left-2 right-2 sm:left-4 sm:right-4 z-10"
+              className="absolute top-10 sm:top-14 left-1 right-1 sm:left-4 sm:right-4 z-10"
             >
-              <div className="glass-card-strong rounded-xl shadow-2xl overflow-hidden">
-                <div className="flex items-center gap-3 px-4 py-3 border-b border-secondary-100/50 bg-white/50">
-                  <Search className="w-4 h-4 text-secondary-400" />
-                  <div className="flex-1 flex items-center">
-                    <span className="text-sm text-secondary-900">{displayText}</span>
+              <div className="glass-card-strong rounded-lg sm:rounded-xl shadow-2xl overflow-hidden">
+                <div className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 sm:py-3 border-b border-secondary-100/50 bg-white/50">
+                  <Search className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-secondary-400 flex-shrink-0" />
+                  <div className="flex-1 flex items-center min-w-0">
+                    <span className="text-xs sm:text-sm text-secondary-900 truncate">{displayText}</span>
                     {phase === "typing" && (
                       <motion.span
                         animate={{ opacity: showCursor ? 1 : 0 }}
@@ -1009,7 +1009,7 @@ export function InteractiveHeroMockup() {
                       />
                     )}
                   </div>
-                  <kbd className="px-2 py-1 text-[10px] bg-secondary-100/80 rounded-md text-secondary-500 font-medium border border-secondary-200/50 flex items-center gap-1">
+                  <kbd className="hidden sm:flex px-2 py-1 text-[10px] bg-secondary-100/80 rounded-md text-secondary-500 font-medium border border-secondary-200/50 items-center gap-1">
                     <CornerDownLeft className="w-2.5 h-2.5" />
                   </kbd>
                 </div>
@@ -1128,7 +1128,7 @@ export function InteractiveHeroMockup() {
       </motion.div>
 
       {/* Floating steps bubble - smooth spring entrance */}
-      <div className="mt-3 sm:mt-4 min-h-[140px] sm:min-h-[180px]">
+      <div className="mt-2 sm:mt-4 min-h-[120px] sm:min-h-[180px]">
         <motion.div
           initial={{ opacity: 0, y: 20, scale: 0.97 }}
           animate={{
@@ -1144,12 +1144,12 @@ export function InteractiveHeroMockup() {
           }}
           className={!["showing-steps", "executing", "success"].includes(phase) ? "pointer-events-none" : ""}
         >
-          <div className="glass-card-strong rounded-xl p-4 shadow-lg border border-white/50">
-            <div className="flex items-center gap-2 mb-3 text-xs text-secondary-500">
+          <div className="glass-card-strong rounded-xl p-3 sm:p-4 shadow-lg border border-white/50">
+            <div className="flex items-center gap-2 mb-2 sm:mb-3 text-[10px] sm:text-xs text-secondary-500">
               <Sparkles className="w-3 h-3 text-primary-500" />
               <span>Generated {currentQuestion.steps.length}-step guidance</span>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-1.5 sm:space-y-2">
               {currentQuestion.steps.map((step, i) => {
                 const StepIcon = step.icon;
                 const isVisible = i < visibleSteps || phase === "executing" || phase === "success";
@@ -1163,7 +1163,7 @@ export function InteractiveHeroMockup() {
                     initial="hidden"
                     animate={isVisible ? "visible" : "hidden"}
                     variants={stepVariants}
-                    className={`flex items-center gap-3 px-3 py-2 rounded-lg ${
+                    className={`flex items-center gap-2 sm:gap-3 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg ${
                       isActive
                         ? "bg-primary-50/80 border border-primary-200"
                         : isCompleted
@@ -1172,7 +1172,7 @@ export function InteractiveHeroMockup() {
                     }`}
                   >
                     <div
-                      className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
+                      className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center text-[10px] sm:text-xs font-bold flex-shrink-0 ${
                         isCompleted
                           ? "bg-green-500 text-white"
                           : isActive
@@ -1180,15 +1180,15 @@ export function InteractiveHeroMockup() {
                           : "bg-secondary-200 text-secondary-600"
                       }`}
                     >
-                      {isCompleted ? <CheckCircle2 className="w-3.5 h-3.5" /> : i + 1}
+                      {isCompleted ? <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> : i + 1}
                     </div>
                     <StepIcon
-                      className={`w-4 h-4 ${
+                      className={`w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 ${
                         isCompleted ? "text-green-500" : isActive ? "text-primary-500" : "text-secondary-400"
                       }`}
                     />
                     <span
-                      className={`text-sm ${
+                      className={`text-xs sm:text-sm ${
                         isCompleted
                           ? "text-green-700 line-through"
                           : isActive

@@ -72,25 +72,25 @@ export function StatsSection() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8"
         >
           {stats.map((stat, index) => (
             <motion.div
               key={index}
               variants={fadeInUp}
               whileHover={{ y: -5, scale: 1.02 }}
-              className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-secondary-100 shadow-soft hover:shadow-elevated transition-all duration-300 text-center group"
+              className="relative bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-secondary-100 shadow-soft hover:shadow-elevated transition-all duration-300 text-center group"
             >
               {/* Top gradient accent */}
-              <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-20 h-1 rounded-b-full bg-gradient-to-r ${stat.color}`} />
+              <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-12 sm:w-20 h-1 rounded-b-full bg-gradient-to-r ${stat.color}`} />
 
               {/* Icon */}
-              <div className={`w-12 h-12 rounded-xl ${stat.bgColor} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
-                <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
+              <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl ${stat.bgColor} flex items-center justify-center mx-auto mb-2 sm:mb-4 group-hover:scale-110 transition-transform`}>
+                <stat.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${stat.iconColor}`} />
               </div>
 
               {/* Counter */}
-              <div className="text-3xl md:text-4xl font-bold text-secondary-900 mb-2">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary-900 mb-1 sm:mb-2">
                 <AnimatedCounter
                   value={stat.value}
                   prefix={stat.prefix}
@@ -99,12 +99,12 @@ export function StatsSection() {
               </div>
 
               {/* Label */}
-              <p className="text-sm font-medium text-secondary-800 mb-1 line-clamp-2">
+              <p className="text-xs sm:text-sm font-medium text-secondary-800 mb-0.5 sm:mb-1 line-clamp-2">
                 {stat.label}
               </p>
 
               {/* Description */}
-              <p className="text-xs text-secondary-500">
+              <p className="text-[10px] sm:text-xs text-secondary-500 hidden sm:block">
                 {stat.description}
               </p>
 
@@ -112,7 +112,7 @@ export function StatsSection() {
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 whileHover={{ scale: 1, opacity: 1 }}
-                className="absolute -inset-px rounded-2xl border-2 border-primary-300 pointer-events-none"
+                className="absolute -inset-px rounded-xl sm:rounded-2xl border-2 border-primary-300 pointer-events-none"
               />
             </motion.div>
           ))}
